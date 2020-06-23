@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smkiva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 13:44:01 by smkiva            #+#    #+#             */
-/*   Updated: 2020/06/23 15:21:32 by smkiva           ###   ########.fr       */
+/*   Created: 2020/06/23 15:59:57 by smkiva            #+#    #+#             */
+/*   Updated: 2020/06/23 16:00:09 by smkiva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strcapitalize(char *str)
+int	ft_str_is_lowercase(char *str)
 {
 	int i;
-	int upper;
+	int c;
 
 	i = 0;
-	upper = 1;
 	while (str[i] != '\0')
 	{
-		if ((str[i] >= '0' && str[i] <= '9') ||
-			(str[i] >= 'a' && str[i] <= 'z') ||
-			(str[i] >= 'A' && str[i] <= 'Z'))
+		if (str[i] < 'a' || str[i] > 'z')
 		{
-			if (upper && (str[i] >= 'a' && str[i] <= 'z'))
-				str[i] = str[i] - 32;
-			else if (!upper && (str[i] >= 'A' && str[i] <= 'Z'))
-				str[i] = str[i] + 32;
-			upper = 0;
+			return (0);
 		}
-		else
-			upper = 1;
 		i++;
 	}
-	return (str);
+	return (1);
 }
