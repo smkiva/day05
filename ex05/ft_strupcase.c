@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smkiva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/22 11:33:56 by smkiva            #+#    #+#             */
-/*   Updated: 2020/06/23 12:38:03 by smkiva           ###   ########.fr       */
+/*   Created: 2020/06/23 11:59:51 by smkiva            #+#    #+#             */
+/*   Updated: 2020/06/23 13:41:11 by smkiva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include<stdio.h>
-char *ft_strcpy(char *dest, char *src)
+
+char *ft_strupcase(char *str)
 {
 	int i;
-	i = 0;
 
-	while(dest[i] != '\0')
+	i = 0;
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] -= 32;
 		i++;
 	}
-	return(dest);
-}
-int main()
-{
-	char ex[55] = "hello";
-	ft_strcpy(ex, "yes");
-	printf("%s", ex);
-
-	return 0;
+	return (str);
 }
